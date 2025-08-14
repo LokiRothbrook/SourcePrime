@@ -1352,8 +1352,9 @@ Search                         LOGO                    Login Subscribe
 
 .gh-header.is-classic {
     display: flex;
+    flex-direction: column;
     margin-top: 0;
-    padding-block: 160px;
+    padding-block: 50px;
 }
 
 .gh-header.is-classic .gh-header-inner {
@@ -1379,7 +1380,6 @@ Search                         LOGO                    Login Subscribe
 
 .gh-header.is-classic.has-image::before {
     position: absolute;
-    inset: 0;
     content: "";
     opacity: 0.3;
     background-color: var(--color-black);
@@ -1391,11 +1391,13 @@ Search                         LOGO                    Login Subscribe
 }
 
 .gh-header.is-classic.has-image .gh-header-image {
-    position: absolute;
+    position: relative;
     inset: 0;
-    z-index: -1;
-    width: 100%;
-    height: 100%;
+    width: 300px;
+    max-width: 300px;
+    height: auto;
+    margin: auto;
+    padding-bottom: 30px;
     object-fit: cover;
 }
 
