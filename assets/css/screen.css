@@ -72,7 +72,7 @@ production stylesheet in assets/built/screen.css
 }
 
 :root.has-light-text,
-:is(.gh-navigation, .gh-footer).has-accent-color {
+:is(.gh-navigation, .gh-footer):is(.has-accent-color, .has-prime-color) {
     --color-lighter-gray: rgb(255 255 255 / 0.1);
     --color-darker-gray: #fff;
     --color-secondary-text: rgb(255 255 255 / 0.64);
@@ -227,7 +227,7 @@ a:hover {
 }
 
 .has-light-text .gh-form:hover,
-.gh-footer.has-accent-color .gh-form:hover {
+.gh-footer:is(.has-accent-color, .has-prime-color) .gh-form:hover {
     background-color: rgb(255 255 255 / 0.15);
 }
 
@@ -262,13 +262,13 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
 }
 
 .has-light-text .gh-form-input,
-.gh-footer.has-accent-color .gh-form-input {
+.gh-footer:is(.has-accent-color, .has-prime-color) .gh-form-input {
     color: #fff;
 }
 
 .has-light-text .gh-form-input::placeholder,
 .has-light-text button.gh-form-input,
-.gh-footer.has-accent-color .gh-form-input::placeholder {
+.gh-footer:is(.has-accent-color, has-prime-color) .gh-form-input::placeholder {
     color: rgb(255 255 255 / 0.55);
 }
 
@@ -499,6 +499,10 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
     background-color: var(--ghost-accent-color);
 }
 
+.gh-navigation.has-prime-color .gh-navigation-actions {
+    background-color: var(--prime-accent-color);
+}
+
 .gh-navigation-members {
     display: flex;
     gap: 20px;
@@ -548,7 +552,11 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
     background-color: var(--ghost-accent-color);
 }
 
-.gh-navigation.has-accent-color .gh-button {
+.gh-navigation.has-prime-color {
+    background-color: var(--prime-accent-color);
+}
+
+.gh-navigation:is(.has-accent-color, .has-prime-color) .gh-button {
     background-color: #fff;
     color: #15171a;
 }
@@ -2750,11 +2758,15 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
     background-color: var(--ghost-accent-color);
 }
 
-.gh-footer.has-accent-color .gh-footer-bar {
+.gh-footer.has-prime-color {
+    background-color: var(--prime-accent-color);
+}
+
+.gh-footer:is(.has-accent-color, .has-prime-color) .gh-footer-bar {
     border-top: 0;
 }
 
-.gh-footer.has-accent-color .gh-button {
+.gh-footer:is(.has-accent-color, .has-prime-color) .gh-button {
     background-color: #fff;
     color: #15171a;
 }

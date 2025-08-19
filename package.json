@@ -97,13 +97,20 @@
             },
             "site_background_color": {
                 "type": "color",
-                "default": "#ffffff"
+                "default": "#ffffff",
+                "description": "The background color of your site"
+            },
+            "second_accent_color": {
+                "type": "color",
+                "default": "#000000",
+                "description": "The second accent color of your site"
             },
             "header_and_footer_color": {
                 "type": "select",
                 "options": [
                     "Background color",
-                    "Accent color"
+                    "Accent color",
+                    "Second Accent color"
                 ],
                 "default": "Background color"
             },
