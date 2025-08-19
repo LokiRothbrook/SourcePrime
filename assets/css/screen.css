@@ -22,28 +22,25 @@ production stylesheet in assets/built/screen.css
 9. CTA
 10. Featured posts
 11. Container
-  11.1. With sidebar
-  11.2. Without sidebar
 12. Post list
   12.1. List style
   12.2. Grid style
   12.3. No image list
-13. Sidebar
-14. Post/page
-  14.1. Article
-  14.2. Page template
-  14.3. Page without header
-15. Content
-16. Cards
-17. Comments
-18. Recent posts
-19. Archive
-20. Design settings
-21. Footer
-  21.1. Footer styles
-  21.2. Footer bar
-  21.3. Footer signup
-22. Lightbox
+13. Post/page
+  13.1. Article
+  13.2. Page template
+  13.3. Page without header
+14. Content
+15. Cards
+16. Comments
+17. Recent posts
+18. Archive
+19. Design settings
+20. Footer
+  20.1. Footer styles
+  20.2. Footer bar
+  20.3. Footer signup
+21. Lightbox
 
 */
 
@@ -1596,7 +1593,7 @@ Search                         LOGO                    Login Subscribe
 }
 
 .gh-navigation + .gh-container .gh-container-title,
-:is(.paged, .tag-template, .author-template) .gh-container:not(.has-sidebar) .gh-container-title {
+:is(.paged, .tag-template, .author-template) .gh-container .gh-container-title {
     display: none;
 }
 
@@ -1607,10 +1604,6 @@ Search                         LOGO                    Login Subscribe
     font-size: calc(1.9rem * var(--factor, 1));
     font-weight: 725;
     letter-spacing: -0.014em;
-}
-
-.gh-container.has-sidebar .gh-more {
-    grid-column: span 12;
 }
 
 .home-template .gh-feed:has(> :nth-child(12):last-child) ~ .gh-more {
@@ -1633,38 +1626,15 @@ Search                         LOGO                    Login Subscribe
     margin-top: 0;
 }
 
-/* 11.1. With sidebar */
-
-.gh-container.has-sidebar .gh-main {
-    grid-column: 1 / span 12;
-    position: relative;
-}
-
-.gh-container.has-sidebar .gh-sidebar {
-    grid-column: 13 / -1;
-}
-
-.gh-container.has-sidebar .gh-main::after {
-    position: absolute;
-    top: 0;
-    right: calc(var(--grid-gap) / -2);
-    content: "";
-    width: 1px;
-    height: 100%;
-    background-color: var(--color-border);
-}
-
-/* 11.2. Without sidebar */
-
-.gh-container:not(.has-sidebar) :is(.gh-container-title, .gh-main, .gh-more) {
+.gh-container :is(.gh-container-title, .gh-main, .gh-more) {
     grid-column: 3 / span 12;
 }
 
-.gh-container.is-list.no-image:not(.has-sidebar) :is(.gh-container-title, .gh-main, .gh-more) {
+.gh-container.is-list.no-image :is(.gh-container-title, .gh-main, .gh-more) {
     grid-column: 4 / span 10;
 }
 
-.gh-header:is(.is-highlight, .is-magazine) ~ .gh-container.is-grid:not(.has-sidebar) :is(.gh-container-title, .gh-main, .gh-more) {
+.gh-header:is(.is-highlight, .is-magazine) ~ .gh-container.is-grid :is(.gh-container-title, .gh-main, .gh-more) {
     grid-column: 1 / -1;
 }
 
@@ -1672,10 +1642,6 @@ Search                         LOGO                    Login Subscribe
     .gh-container-inner {
         display: block;
         overflow: hidden;
-    }
-
-    .gh-container.has-sidebar .gh-sidebar {
-        display: none;
     }
 }
 
@@ -1825,154 +1791,10 @@ Search                         LOGO                    Login Subscribe
     display: none;
 }
 
-/* 13. Sidebar
+/* 13. Post/page
 /* ---------------------------------------------------------- */
 
-.gh-sidebar-inner {
-    position: sticky;
-    top: calc(var(--grid-gap) / 2);
-}
-
-.gh-sidebar-title {
-    grid-column: 1 / -1;
-    margin-bottom: calc(var(--grid-gap) / 2);
-    padding-bottom: 12px;
-    font-size: 1.2rem;
-    font-weight: 550;
-    letter-spacing: 0.025em;
-    text-transform: uppercase;
-    border-bottom: 1px solid var(--color-border);
-}
-
-.gh-about {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 48px 24px;
-    min-height: 380px;
-    text-align: center;
-    background-color: var(--color-lighter-gray);
-}
-
-.gh-about-icon {
-    margin-bottom: 24px;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-}
-
-.gh-about-title {
-    font-size: calc(2.4rem * var(--factor, 1));
-    font-weight: 700;
-    letter-spacing: -0.019em;
-}
-
-.gh-about-description {
-    margin-top: 12px;
-    font-size: 1.45rem;
-    line-height: 1.4;
-}
-
-.gh-about .gh-button {
-    margin-top: 32px;
-}
-
-.gh-recommendations {
-    margin-top: 48px;
-}
-
-.gh-recommendations .recommendations {
-    display: flex;
-    flex-direction: column;
-    gap: 26px;
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-}
-
-.gh-recommendations .recommendation:first-child {
-    margin-top: 4px;
-}
-
-.gh-recommendations .recommendation a {
-    display: grid;
-    grid-template-columns: 24px auto;
-    gap: 4px 12px;
-}
-
-.gh-recommendations .recommendation a:hover {
-    opacity: 1;
-}
-
-.gh-recommendations .recommendation-favicon {
-    grid-row: span 2;
-    width: 100%;
-    border-radius: 4px;
-}
-
-.gh-recommendations .recommendation-title {
-    margin-top: -2px;
-    font-size: 1.5rem;
-    font-weight: 650;
-    letter-spacing: -0.009em;
-}
-
-.gh-recommendations .recommendation a:hover .recommendation-title {
-    opacity: 0.8;
-}
-
-.gh-recommendations .recommendation-url {
-    order: 1;
-    overflow: hidden;
-    font-size: 1.4rem;
-    line-height: 1.25;
-    color: var(--color-secondary-text);
-    text-overflow: ellipsis;
-}
-
-.gh-recommendations .recommendation-description {
-    display: -webkit-box;
-    display: none;
-    overflow-y: hidden;
-    grid-column: 2;
-    font-size: 1.4rem;
-    line-height: 1.4;
-    color: var(--color-secondary-text);
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
-    -webkit-box-orient: vertical;
-}
-
-.gh-recommendations button {
-    display: inline-flex;
-    align-items: center;
-    gap: 2px;
-    margin-top: 24px;
-    padding: 0;
-    cursor: pointer;
-    font-size: 1.2rem;
-    font-weight: 550;
-    letter-spacing: 0.025em;
-    text-transform: uppercase;
-    background-color: transparent;
-    border: 0;
-    color: var(--color-darker-gray);
-}
-
-.gh-recommendations button svg {
-    margin-top: -1px;
-    width: 12px;
-}
-
-.gh-recommendations button:hover {
-    opacity: 0.8;
-}
-
-/* 14. Post/page
-/* ---------------------------------------------------------- */
-
-/* 14.1. Article */
+/* 13.1. Article */
 
 .gh-article {
     --container-width: 1120px;
@@ -2080,13 +1902,13 @@ Search                         LOGO                    Login Subscribe
     width: 100%;
 }
 
-/* 14.2. Page template */
+/* 13.2. Page template */
 
 .page-template .gh-article-header {
     margin-block: 72px 32px;
 }
 
-/* 14.3. Page without header */
+/* 13.3. Page without header */
 
 .page-template .gh-content:only-child > *:first-child:not(.kg-width-full) {
     margin-top: 64px;
@@ -2100,7 +1922,7 @@ Search                         LOGO                    Login Subscribe
     margin-top: 0;
 }
 
-/* 15. Content
+/* 14. Content
 /* ---------------------------------------------------------- */
 
 /* Content refers to styling all page and post content that is
@@ -2278,7 +2100,7 @@ unless a heading is the very first element in the post content */
     font-family: var(--font-mono);
 }
 
-/* 16. Cards
+/* 15. Cards
 /* ---------------------------------------------------------- */
 
 /* Add extra margin before/after any cards, except for when immediately preceeded by a heading */
@@ -2486,14 +2308,14 @@ figcaption a {
     text-decoration: underline;
 }
 
-/* 17. Comments
+/* 16. Comments
 /* ---------------------------------------------------------- */
 
 .gh-comments {
     margin-top: 48px;
 }
 
-/* 18. Recent posts
+/* 17. Recent posts
 /* ---------------------------------------------------------- */
 
 .post-template .gh-container {
@@ -2512,7 +2334,7 @@ figcaption a {
     display: block;
 }
 
-/* 19. Archive
+/* 18. Archive
 /* ---------------------------------------------------------- */
 
 .gh-archive {
@@ -2540,7 +2362,7 @@ figcaption a {
     grid-column: 1 / -1;
 }
 
-.gh-archive:not(.has-sidebar):not(.has-image) .gh-archive-inner {
+.gh-archive:not(.has-image) .gh-archive-inner {
     grid-column: 3 / span 12;
 }
 
@@ -2615,7 +2437,7 @@ figcaption a {
     }
 }
 
-/* 20. Design settings
+/* 19. Design settings
 /* ---------------------------------------------------------- */
 
 .has-serif-title:not([class*=" gh-font-heading"]):not([class^="gh-font-heading"]) {
@@ -2739,7 +2561,7 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
     font-size: 4.8rem;
 }
 
-/* 21. Footer
+/* 20. Footer
 /* ---------------------------------------------------------- */
 
 .gh-footer {
@@ -2752,7 +2574,7 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
     color: inherit;
 }
 
-/* 21.1 Footer styles */
+/* 20.1 Footer styles */
 
 .gh-footer.has-accent-color {
     background-color: var(--ghost-accent-color);
@@ -2771,7 +2593,7 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
     color: #15171a;
 }
 
-/* 21.2. Footer bar */
+/* 20.2. Footer bar */
 
 .gh-footer-bar {
     display: grid;
@@ -2816,7 +2638,7 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
     text-decoration: underline;
 }
 
-/* 21.3. Footer signup */
+/* 20.3. Footer signup */
 
 .gh-footer-signup {
     display: flex;
@@ -2854,7 +2676,7 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
     }
 }
 
-/* 22. Lightbox
+/* 21. Lightbox
 /* ---------------------------------------------------------- */
 
 .pswp {

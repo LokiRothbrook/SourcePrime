@@ -196,11 +196,6 @@
                 "default": true,
                 "group": "homepage"
             },
-            "show_publication_info_sidebar": {
-                "type": "boolean",
-                "default": false,
-                "group": "homepage"
-            },
             "show_post_metadata": {
                 "type": "boolean",
                 "default": true,
