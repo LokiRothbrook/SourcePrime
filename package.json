@@ -165,12 +165,6 @@
                 "group": "homepage",
                 "visibility": "header_style:[Landing, Search]"
             },
-            "show_featured_posts": {
-                "type": "boolean",
-                "default": false,
-                "group": "homepage",
-                "visibility": "header_style:[Highlight, Magazine]"
-            },
             "post_feed_style": {
                 "type": "select",
                 "options": [
