@@ -186,21 +186,6 @@
                 "group": "homepage",
                 "visibility": "post_feed_style:List"
             },
-            "show_author": {
-                "type": "boolean",
-                "default": true,
-                "group": "homepage"
-            },
-            "show_publish_date": {
-                "type": "boolean",
-                "default": true,
-                "group": "homepage"
-            },
-            "show_post_metadata": {
-                "type": "boolean",
-                "default": true,
-                "group": "post"
-            },
             "enable_drop_caps_on_posts": {
                 "type": "boolean",
                 "default": false,
