@@ -1,8 +1,8 @@
 {
-    "name": "source",
-    "description": "A default theme for the Ghost publishing platform",
-    "demo": "https://source.ghost.io",
-    "version": "1.5.0",
+    "name": "sourceprime",
+    "description": "SourcePrime: A neon-charged Ghost theme fork from TryGhost/Source, powering lokisoft.xyz's free education quest! Features sticky navigation bars, dynamic TOCs via tocbot, Prism code highlights, and customizable accents. Open-source, community-driven — join the adventure! #LokiSoftZeroToHero",
+    "demo": "https://spurceprime.lokisoft.xyz",
+    "version": "0.1.0",
     "engines": {
         "ghost": ">=5.0.0"
     },
@@ -18,9 +18,9 @@
         "postship": "git fetch && gulp release"
     },
     "author": {
-        "name": "Ghost Foundation",
-        "email": "hello@ghost.org",
-        "url": "https://ghost.org/"
+        "name": "Arron Ohnemus",
+        "email": "arronohnemus@lokisoft.xyz",
+        "url": "https://lokisoft.xyz"
     },
     "gpm": {
         "type": "theme",
@@ -36,23 +36,25 @@
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/TryGhost/Source.git"
+        "url": "https://github.com/LokiRothbrook/SourcePrime.git"
     },
-    "bugs": "https://github.com/TryGhost/Source/issues",
-    "contributors": "https://github.com/TryGhost/Source/graphs/contributors",
+    "bugs": "https://github.com/LokiRothbrook/SourcePrime/issues",
+    "contributors": [
+        "https://github.com/LokiRothbrook/SourcePrime/graphs/contributors"
+    ],
     "devDependencies": {
         "@tryghost/release-utils": "0.8.1",
         "autoprefixer": "10.4.7",
-        "beeper": "2.1.0",
-        "cssnano": "5.1.12",
-        "gscan": "4.49.1",
-        "gulp": "4.0.2",
+        "beeper": "3.0.0",
+        "cssnano": "7.1.0",
+        "gscan": "5.1.0",
+        "gulp": "5.0.1",
         "gulp-concat": "2.6.1",
         "gulp-livereload": "4.0.2",
-        "gulp-postcss": "9.0.1",
+        "gulp-postcss": "10.0.0",
         "gulp-uglify": "3.0.2",
-        "gulp-zip": "5.1.0",
-        "inquirer": "8.2.4",
+        "gulp-zip": "6.1.0",
+        "inquirer": "12.9.3",
         "postcss": "8.2.13",
         "postcss-easy-import": "4.0.0",
         "pump": "3.0.0"
