@@ -180,12 +180,6 @@
                 "default": "List",
                 "group": "homepage"
             },
-            "show_images_in_feed": {
-                "type": "boolean",
-                "default": true,
-                "group": "homepage",
-                "visibility": "post_feed_style:List"
-            },
             "enable_drop_caps_on_posts": {
                 "type": "boolean",
                 "default": false,
