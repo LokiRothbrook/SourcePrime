@@ -90,8 +90,7 @@
                 "type": "select",
                 "options": [
                     "Logo in the middle",
-                    "Logo on the left",
-                    "Stacked"
+                    "Logo on the left"
                 ],
                 "default": "Logo in the middle"
             },
