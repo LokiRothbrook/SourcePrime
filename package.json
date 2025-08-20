@@ -92,7 +92,8 @@
                     "Logo in the middle",
                     "Logo on the left"
                 ],
-                "default": "Logo in the middle"
+                "default": "Logo in the middle",
+                "description": "Choose the layout of your navigation bar"
             },
             "site_background_color": {
                 "type": "color",
@@ -102,16 +103,34 @@
             "second_accent_color": {
                 "type": "color",
                 "default": "#000000",
-                "description": "The second accent color of your site"
+                "description": "The second accent color of your site, used for input boxes and prism backgrounds"
             },
-            "header_and_footer_color": {
+            "glow_color": {
+                "type": "color",
+                "default": "#000000",
+                "description": "The glow color of your site, also used for header and footer link colors"
+            },
+            "header_color": {
                 "type": "select",
                 "options": [
                     "Background color",
                     "Accent color",
-                    "Second Accent color"
+                    "Second Accent color",
+                    "Glow color"
                 ],
-                "default": "Background color"
+                "default": "Background color",
+                "description": "Choose the color of your header, used for the header background"
+            },
+            "footer_color": {
+                "type": "select",
+                "options": [
+                    "Background color",
+                    "Accent color",
+                    "Second Accent color",
+                    "Glow color"
+                ],
+                "default": "Background color",
+                "description": "Choose the color of your footer, used for the footer background"
             },
             "signup_heading": {
                 "type": "text",
@@ -140,12 +159,14 @@
                     "Grid"
                 ],
                 "default": "List",
-                "group": "homepage"
+                "group": "homepage",
+                "description": "Choose the style of your post feed on the homepage"
             },
             "enable_drop_caps_on_posts": {
                 "type": "boolean",
                 "default": false,
-                "group": "post"
+                "group": "post",
+                "description": "Enable drop caps on posts, this will add a drop cap to the first letter of each post"
             }
         }
     },

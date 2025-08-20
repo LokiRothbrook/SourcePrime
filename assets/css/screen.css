@@ -68,7 +68,7 @@ production stylesheet in assets/built/screen.css
 }
 
 :root.has-light-text,
-:is(.gh-navigation, .gh-footer):is(.has-accent-color, .has-prime-color) {
+:is(.gh-navigation, .gh-footer):is(.has-accent-color) {
     --color-lighter-gray: rgb(255 255 255 / 0.1);
     --color-darker-gray: #fff;
     --color-secondary-text: rgb(255 255 255 / 0.64);
@@ -223,7 +223,7 @@ a:hover {
 }
 
 .has-light-text .gh-form:hover,
-.gh-footer:is(.has-accent-color, .has-prime-color) .gh-form:hover {
+.gh-footer:is(.has-accent-color) .gh-form:hover {
     background-color: rgb(255 255 255 / 0.15);
 }
 
@@ -253,13 +253,13 @@ button.gh-form-input {
 }
 
 .has-light-text .gh-form-input,
-.gh-footer:is(.has-accent-color, .has-prime-color) .gh-form-input {
+.gh-footer:is(.has-accent-color) .gh-form-input {
     color: #fff;
 }
 
 .has-light-text .gh-form-input::placeholder,
 .has-light-text button.gh-form-input,
-.gh-footer:is(.has-accent-color, has-prime-color) .gh-form-input::placeholder {
+.gh-footer:is(.has-accent-color) .gh-form-input::placeholder {
     color: rgb(255 255 255 / 0.55);
 }
 
@@ -485,6 +485,10 @@ button.gh-form-input {
     background-color: var(--prime-accent-color);
 }
 
+.gh-navigation.has-glow-color .gh-navigation-actions {
+    background-color: var(--prime-glow-color);
+}
+
 .gh-navigation-members {
     display: flex;
     gap: 20px;
@@ -538,9 +542,13 @@ button.gh-form-input {
     background-color: var(--prime-accent-color);
 }
 
-.gh-navigation:is(.has-accent-color, .has-prime-color) .gh-button {
-    background-color: #fff;
-    color: #15171a;
+.gh-navigation.has-glow-color {
+    background-color: var(--prime-glow-color);
+}
+
+.gh-navigation:is(.has-accent-color) .gh-button {
+    background-color: var(--background-color);
+    color: var(--ghost-accent-color);
 }
 
 /* 6.2. Navigation layouts */
@@ -1348,7 +1356,7 @@ Search                         LOGO                    Login Subscribe
 .gh-header.is-classic {
     display: flex;
     margin-top: 0;
-    padding-block: 160px;
+    padding-block: 40px;
 }
 
 .gh-header.is-classic .gh-header-inner {
@@ -1370,27 +1378,17 @@ Search                         LOGO                    Login Subscribe
 
 .gh-header.is-classic.has-image {
     margin-top: 0;
-}
-
-.gh-header.is-classic.has-image::before {
-    position: absolute;
-    inset: 0;
-    content: "";
-    opacity: 0.3;
-    background-color: var(--color-black);
-    transition: opacity 1.5s ease;
-}
-
-.gh-header.is-classic.has-image .gh-header-inner {
-    color: #fff;
+    flex-direction: column;
+    align-items: center;
 }
 
 .gh-header.is-classic.has-image .gh-header-image {
-    position: absolute;
+    position: relative;
     inset: 0;
-    z-index: -1;
-    width: 100%;
-    height: 100%;
+    z-index: 1;
+    width: 100%%;
+    max-width: 300px;
+    height: auto;
     object-fit: cover;
 }
 
@@ -1444,7 +1442,7 @@ Search                         LOGO                    Login Subscribe
 /* ---------------------------------------------------------- */
 
 .gh-featured {
-    margin-top: 100px;
+    margin-top: 20px;
 }
 
 .gh-navigation + .gh-featured {
@@ -2392,13 +2390,17 @@ figcaption a {
     background-color: var(--prime-accent-color);
 }
 
-.gh-footer:is(.has-accent-color, .has-prime-color) .gh-footer-bar {
+.gh-footer.has-glow-color {
+    background-color: var(--prime-glow-color);
+}
+
+.gh-footer:is(.has-accent-color) .gh-footer-bar {
     border-top: 0;
 }
 
-.gh-footer:is(.has-accent-color, .has-prime-color) .gh-button {
-    background-color: #fff;
-    color: #15171a;
+.gh-footer:is(.has-accent-color) .gh-button {
+    background-color: var(--background-color);
+    color: #fff;
 }
 
 /* 19.2. Footer bar */
