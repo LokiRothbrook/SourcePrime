@@ -95,6 +95,11 @@
                 "default": "Logo in the middle",
                 "description": "Choose the layout of your navigation bar"
             },
+            "sticky_header": {
+                "type": "boolean",
+                "default": true,
+                "description": "On: Navigation sticks to top. Off Navigation scrolls Off screen"
+            },
             "site_background_color": {
                 "type": "color",
                 "default": "#ffffff",
@@ -108,7 +113,7 @@
             "glow_color": {
                 "type": "color",
                 "default": "#000000",
-                "description": "The glow color of your site, also used for header and footer link colors"
+                "description": "The glow color of your site, also used for navigation menu links Button Links, borders and lines"
             },
             "header_color": {
                 "type": "select",

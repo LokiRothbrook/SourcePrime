@@ -1,4 +1,4 @@
-<header id="gh-navigation" class="gh-navigation is-{{#match navigationLayout "Logo on the left"}}left-logo{{else}}middle-logo{{/match}}{{#match @custom.header_color "Accent color"}} has-accent-color{{else match @custom.header_color "Second Accent color"}} has-prime-color{{else match @custom.header_color "Glow color"}} has-glow-color{{/match}} gh-outer">
+<header id="gh-navigation" class="gh-navigation is-{{#match navigationLayout "Logo on the left"}}left-logo{{else}}middle-logo{{/match}}{{#match @custom.header_color "Accent color"}} has-accent-color{{else match @custom.header_color "Second Accent color"}} has-prime-color{{else match @custom.header_color "Glow color"}} has-glow-color{{/match}}{{#if @custom.sticky_header}} has-sticky{{/if}} glow-enabled gh-outer">
     <div class="gh-navigation-inner gh-inner">
 
         <div class="gh-navigation-brand">

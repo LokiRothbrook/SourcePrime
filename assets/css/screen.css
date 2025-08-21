@@ -40,7 +40,6 @@ production stylesheet in assets/built/screen.css
   19.2. Footer bar
   19.3. Footer signup
 20. Lightbox
-
 */
 
 /* 1. Variables
@@ -161,14 +160,26 @@ a:hover {
     font-weight: 600;
     letter-spacing: -0.004em;
     line-height: 1;
-    color: var(--color-white);
-    cursor: pointer;
-    background-color: var(--ghost-accent-color);
-    border: 0;
     border-radius: 100px;
+    background-color: var(--ghost-accent-color);
+    color: var(--prime-glow-color);
+    cursor: pointer;
+    border: 0;
+    box-shadow: none; /* No glow by default
+    /*text-decoration: none; */
+    text-shadow:none;
+    /*border: none; */
+    transition: box-shadow 0.5s ease, text-shadow 0.5s ease, opacity 0.5s ease; /* Smooth ease-in/out for glow */
 }
 
-.gh-button:hover {
+.gh-button:hover{
+    color: var(--prime-glow-color);
+    box-shadow: 0 0 5px var(--prime-glow-color),
+                0 0 10px var(--prime-glow-color),
+                0 0 20px var(--prime-glow-color),
+                0 0 40px var(--prime-glow-color); /* Neon glow effect */
+    text-shadow: 0 0 5px var(--prime-glow-color),
+                0 0 10px var(--prime-glow-color);
     opacity: 0.95;
 }
 
@@ -186,8 +197,18 @@ a:hover {
     outline: none;
 }
 
+.gh-icon-button :is(svg, span) {
+    color: var(--prime-glow-color);
+    filter: none;
+    transition: filter 0.5s ease; /* Smooth ease-in/out for glow */
+}
+
 .gh-icon-button:hover :is(svg, span) {
-    opacity: 0.8;
+    filter: 
+        drop-shadow(0 0 5px var(--prime-glow-color))
+        drop-shadow(0 0 10px var(--prime-glow-color))
+        drop-shadow(0 0 15px var(--prime-glow-color));
+        opacity: 0.8;
 }
 
 .gh-icon-button svg {
@@ -411,9 +432,20 @@ button.gh-form-input {
     background-color: var(--background-color);
     color: var(--color-darker-gray);
 }
-
+/* TODO: Check if this needs to be --prime-glow-color */
 .gh-navigation :is(.gh-navigation-logo, a:not(.gh-button), .gh-icon-button) {
-    color: inherit;
+    color: inherit;  
+}
+
+.gh-navigation-logo img {
+    filter: none;
+    transition: filter 0.5s ease;
+}
+
+.gh-navigation-logo:hover img {
+    filter: drop-shadow(0 0 5px var(--prime-glow-color))
+            drop-shadow(0 0 10px var(--prime-glow-color))
+            drop-shadow(0 0 20px var(--prime-glow-color));
 }
 
 .gh-navigation-inner {
@@ -455,6 +487,17 @@ button.gh-form-input {
     margin: 0;
     white-space: nowrap;
     list-style: none;
+    color: var(--prime-glow-color);
+}
+.gh-navigation a:not(.gh-button) {
+    text-shadow: none;
+    transition: text-shadow 0.5s ease;
+}
+
+.gh-navigation a:not(.gh-button):hover {
+    text-shadow: 0 0 5px var(--prime-glow-color),
+                0 0 10px var(--prime-glow-color), 
+                0 0 40px var(--prime-glow-color);
 }
 
 .gh-navigation .gh-more-toggle {
@@ -489,11 +532,26 @@ button.gh-form-input {
     background-color: var(--prime-glow-color);
 }
 
+.gh-navigation.has-sticky {
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 0.05);
+}
+
+.gh-navigation.glow-enabled {
+    border-bottom: 2px solid var(--prime-glow-color);
+    border-radius: 0 0 5px 5px;
+    box-shadow: 0 4px 8px -2px var(--prime-glow-color), /* Tight glow below */
+              0 8px 16px -4px var(--prime-glow-color); /* Softer secondary glow */
+}
+
 .gh-navigation-members {
     display: flex;
     gap: 20px;
     align-items: center;
     white-space: nowrap;
+    color: var(--prime-glow-color);
 }
 
 .gh-navigation-members .gh-button {
@@ -839,12 +897,18 @@ Search                         LOGO                    Login Subscribe
     }
 
     .is-open#gh-navigation {
+        margin: auto;
         position: fixed;
         inset: 0;
         z-index: 3999999;
-        height: 100%;
+        height: 80%;
+        width: 80%;
         overflow-y: scroll;
         -webkit-overflow-scrolling: touch;
+        border: 2px solid var(--prime-glow-color);
+        border-radius: 10px;
+        box-shadow: 0 0 8px 2px var(--prime-glow-color), /* Glow all around */
+                0 0 16px 4px var(--prime-glow-color); /* Softer secondary glow */
     }
 
     .is-open#gh-navigation .gh-navigation-menu,
@@ -879,13 +943,12 @@ Search                         LOGO                    Login Subscribe
 
     .is-open#gh-navigation :is(.gh-button, a[data-portal="signin"]) {
         opacity: 1;
-        transition: transform 0.4s, opacity 0.4s;
-        transition-delay: 0.2s;
+        transition: transform 0.4s ease 0.2s, opacity 0.4s ease 0.2s, box-shadow 0.5s ease, text-shadow 0.5s ease;
         transform: translateY(0);
     }
 
     .is-open#gh-navigation a[data-portal="signin"] {
-        transition-delay: 0.4s;
+        transition: transform 0.4s ease 0.4s, opacity 0.4s ease 0.4s, text-shadow 0.5s ease;
     }
 
     .is-open#gh-main {
@@ -1386,7 +1449,7 @@ Search                         LOGO                    Login Subscribe
     position: relative;
     inset: 0;
     z-index: 1;
-    width: 100%%;
+    width: 100%;
     max-width: 300px;
     height: auto;
     object-fit: cover;
